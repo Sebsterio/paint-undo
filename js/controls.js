@@ -7,6 +7,7 @@ function handleMouseDown(e) {
 }
 
 function handleMouseMove(e) {
+	if (!cursorVisible) toggleCursor(true);
 	moveCursor(e);
 	if (isDrawing) drawAndSave(e);
 }
@@ -34,6 +35,7 @@ function handleTouch(e) {
 		startStroke(e);
 	} else if (e.type === "touchmove") {
 		handleTouch.tap = false;
+		toggleCursor(false);
 		drawAndSave(e);
 	} else if (e.type === "touchend" || e.type === "touchcancel") {
 		endStroke(e);

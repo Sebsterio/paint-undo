@@ -18,6 +18,9 @@ let lastX, lastY, curX, curY;
 const strokes = []; // arr of lines
 let lines = []; // arr of coord pairs
 
+// Cursor
+cursorVisible = false;
+
 // ------------------------------ Setup ------------------------------
 
 // Declare / restore props as they got reset by resize

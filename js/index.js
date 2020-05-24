@@ -1,4 +1,4 @@
 /************************* Index *************************/
-setUpPointer(lineWidth);
+setUpCursor(lineWidth);
 resetCanvas();
 initControls();
