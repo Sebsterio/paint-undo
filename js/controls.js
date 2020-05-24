@@ -24,13 +24,30 @@ function handleWheel(e) {
 	resizeCursor(lineWidth);
 }
 
+// Discern between touch stroke and tap
+function handleTouch(e) {
+	e.preventDefault(); // Prevent mouse event from firing
+	if (info) info.remove(); // overlay div
+
+	if (e.type === "touchstart") {
+		handleTouch.tap = true;
+		startStroke(e);
+	} else if (e.type === "touchmove") {
+		handleTouch.tap = false;
+		drawAndSave(e);
+	} else if (e.type === "touchend" || e.type === "touchcancel") {
+		endStroke(e);
+		if (handleTouch.tap) undo();
+	}
+}
+
 function handleKeyDown(e) {
 	if ((e.key && e.key == "Backspace") || (e.keyCode && e.keyCode == 8)) undo();
 }
 
 function initControls() {
-	canvas.addEventListener("mousedown", handleMouseDown);
-	canvas.addEventListener("mousemove", handleMouseMove);
+	document.addEventListener("mousedown", handleMouseDown);
+	document.addEventListener("mousemove", handleMouseMove);
 	canvas.addEventListener("mouseup", handleMouseUp);
 	canvas.addEventListener("mouseout", handleMouseUp);
 

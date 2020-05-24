@@ -65,18 +65,3 @@ function undo() {
 	strokes.pop();
 	redraw();
 }
-
-// Discern between touch stroke and tap
-function handleTouch(e) {
-	e.preventDefault(); // Prevent mouse event from firing
-	if (e.type === "touchstart") {
-		handleTouch.tap = true;
-		startStroke(e);
-	} else if (e.type === "touchmove") {
-		handleTouch.tap = false;
-		drawAndSave(e);
-	} else if (e.type === "touchend" || e.type === "touchcancel") {
-		endStroke(e);
-		if (handleTouch.tap) undo();
-	}
-}
