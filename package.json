@@ -7,6 +7,10 @@
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"keywords": [],
-	"author": "Sebadtian Rosloniec",
-	"license": "ISC"
+	"author": "Sebastian Rosloniec",
+	"license": "ISC",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Sebsterio/paint-undo"
+	}
 }

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>HTML5 Canvas</title>
+  <style>
+    /* Cursor vars */
+    :root {
+      --visibility: visible;
+      --top: -50px;
+      --left: 0;
+      --size: 0;
+    }
+
+    html,
+    body {
+      padding: 0;
+      margin: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    body {
+      font-size: 20px;
+    }
+
+    canvas {
+      position: absolute;
+    }
+
+    #info {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: "helvetica neue", sans-serif;
+      color: #000000;
+      /* text-align: center; */
+    }
+
+    span {
+      margin: 1em;
+    }
+
+    .small {
+      font-size: .8em;
+    }
+
+    .margin-top {
+      margin-top: 2em;
+    }
+
+    .cursor {
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translate(var(--left), var(--top)) translate(-50%, -50%);
+      width: var(--size);
+      height: var(--size);
+      border-radius: 50%;
+      box-shadow: 0 0 2px 0 black;
+      visibility: var(--visibility);
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="canvas" width="800" height="800"></canvas>
+  <div class="cursor"></div>
+  <div id="info">
+    <p> <b>Draw</b> with left mouse button or touch. </p>
+    <p> Press Backspace to <b>undo</b>. </p>
+    <p class="small margin-top"> Mouse: Scroll to adjust <b>brush size</b>. (+Alt/Shift: sensitivity)</p>
+    <p class="small"> Touch: Draw with two fingers for a fun effect. </p>
+  </div>
+
+  <!--  Script -->
+  <script src='js/setup.js'></script>
+  <script src='js/cursor.js'></script>
+  <script src='js/draw.js'></script>
+  <script src='js/controls.js'></script>
+  <script src='js/index.js'></script>
+
+  <script src='https://sebsterio.github.io/export-events/main.js'></script>
+</body>
+
+</html>
